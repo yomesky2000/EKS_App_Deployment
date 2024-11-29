@@ -1,0 +1,31 @@
+replicaCount: 1
+
+image:
+  repository: jenkins/jenkins
+  tag: "lts"
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 8080
+  nodePort: null
+
+ingress:
+  enabled: false
+  annotations: {}
+  host: jenkins.example.com
+  tls: false
+
+resources:
+  limits:
+    cpu: "1"
+    memory: "2Gi"
+  requests:
+    cpu: "0.5"
+    memory: "1Gi"
+
+persistence:
+  enabled: true
+  size: 8Gi
+  storageClass: null
+
